@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Josh Portfolio</title>
+    <link rel="stylesheet" href="my.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+
+
+
+
+</head>
+<body>
+
+    <div id="loader">
+        <div class="loader-animation"></div>
+        <h2 class="loader-text">Code Josh</h2>
+    </div>
+    
+    <!-- Main Content -->
+    <div id="content" style="display: none;">
+        <!-- Your webpage content goes here -->
+    </div>
+    
+
+
+    <button id="backToTop" title="Go to top">↑</button>
+
+   
+    <header>
+        <nav class="navbar">
+            <a href="#contact" class="logo">Code Josh</a>
+    
+            <!-- Hamburger Icon (Mobile) -->
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span id="menu-icon">☰</span>
+            </div>
+            
+    
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#whatido">What I Do</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+<!-- home section design -->
+<section class="home" id="home">
+    <div class="home-content">
+        <h3>Hello, It's Me</h3>
+        <h1>Joshua Akum</h1>
+        <h3>I am a <span>Junior Software Developer</span></h3>
+        <p>🚀 Passionate about web & mobile development. Skilled in JavaScript, React, and backend tech.
+
+           <br> 📍 Based in Ghana | Open to opportunities.</p>
+
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/joshua-akum-3a3131329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class='bx bxl-linkedin-square'></i></a>
+            <a href="https://github.com/codejosh619/"><i class='bx bxl-github'></i></a>
+            <a href="https://www.youtube.com/@SmartXMedia?sub_confirmation=1"><i class='bx bxl-youtube' ></i></a>
+            <a href="https://web.facebook.com/profile.php?id=61559272724585"><i class='bx bxl-facebook-circle' ></i></a>
+        </div>
+        <a href="_JOSHUA AKUM WINYELSUM CV.pdf" download="JOSHUA AKUM WINYELSUM CV.pdf" class="btn">Download CV </a>
+    </div>
+
+    <div class="home-image">
+        <img src="images/heroo.png" alt="">
+    </div>
+</section>
+
+<hr>
+
+<section class="about" id="about">
+    <div class="about-img">
+        <img src="images/heroo.png" alt="Joshua Akum image">
+    </div>
+
+    <div class="about-content">
+        <h2 class="heading">About Me</h2>
+        <h3>I Build Digital Experiences That Solve Real Problems.</h3>
+        <p>
+            I am <strong>Joshua Akum</strong>, a passionate <strong>Software Developer, Graphic Designer, and Content Creator</strong> based in Ghana.
+            I specialize in crafting innovative <strong>web applications, graphics, and digital solutions</strong> that help businesses and individuals bring their ideas to life.
+        </p>
+
+        <h4>🔹 My Skills:</h4>
+        <ul>
+            <li>✔ Web & Software Development</li>
+            <li>✔ UI/UX Design</li>
+            <li>✔ Graphic Design & Branding</li>
+            <li>✔ Video Editing</li>
+            <li>✔ Content Creation</li>
+        </ul>
+
+        <p>📩 <strong>Let’s Connect!</strong> If you need a developer or designer for your next project, feel free to reach out.</p>
+
+        <a href="#contact" class="btn">Hire Me</a>
+    </div>
+</section>
+
+
+
+    <!-- Portfolio Section -->
+<section id="portfolio">
+    <div class="container">
+        <h2>My Portfolio</h2>
+        <p>Check out my latest projects.</p>
+
+        <!-- Portfolio Filters -->
+        <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="graphics">Graphics</button>
+            <button class="filter-btn" data-filter="video">Video Editing</button>
+            <button class="filter-btn" data-filter="web">Web Development</button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+            <div class="portfolio-item" data-category="graphics">
+                <img src="images/graphic1.jpg" alt="Graphic Design">
+                <div class="portfolio-info">
+                    <h3>Graphic Design Project</h3>
+                    <a href="#" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="video">
+                <img src="images/video1.jpg" alt="Video Editing">
+                <div class="portfolio-info">
+                    <h3>Video Editing Sample</h3>
+                    <a href="#" target="_blank">Watch Video</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="web">
+                <img src="images/web1.jpg" alt="Web Development">
+                <div class="portfolio-info">
+                    <h3>Website Project</h3>
+                    <a href="#" target="_blank">Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--Stats section design-->
+<section class="stats" id="whatido">
+        <h2 class="wid">What I Do</h2>
+    <div class="stat-box">
+        <div class="progress-bar"></div>
+        <h2>Web & Mobile App Development</h2>
+        <p>I specialize in building modern, high-performing web and mobile applications using JavaScript, React, and backend technologies. Whether it’s a dynamic website, a progressive web app, or a mobile solution, I ensure scalability, efficiency, and a great user experience.</p>
+        <a href="#" class="btn">Read More</a>
+        <div class="progress"></div>
+    </div>
+    <div class="stat-box">
+        <div class="progress-bar"></div>
+        <h2>Graphic & UI/UX Design</h2>
+        <p>Design is more than just aesthetics—it’s about functionality and user engagement. I craft sleek, intuitive, and user-friendly interfaces that enhance user interaction and brand identity. From website UI to app layouts, I deliver designs that stand out.</p>
+    
+        <div class="progress"></div>
+    </div>
+    
+    <div class="stat-box">
+        <div class="progress-bar"></div>
+        <h2>YouTube Automation & Content Creation</h2>
+        <p>I have hands-on experience in the faceless YouTube niche, covering automation, video editing, and content growth strategies. Whether it’s tech, finance, or trending topics, I know how to create high-quality videos that attract views and maximize engagement.</p>
+        
+        <div class="progress"></div>
+    </div>
+    <div class="stat-box">
+        <div class="progress-bar"></div>
+        <h2>Tech & Software Tutorials</h2>
+        <p>Teaching is my passion! I break down complex tech concepts into simple, easy-to-follow tutorials. Whether it's web development, programming, or software tools, I create content that helps beginners and professionals alike grasp new skills efficiently.</p>
+
+        <div class="progress"></div>
+    </div>
+    <div class="stat-box">
+        <div class="progress-bar"></div>
+        <h2>Branding & Logo Design</h2>
+        <p>A brand’s first impression starts with its visual identity. I design professional, eye-catching logos and brand assets that make businesses stand out. From color schemes to typography, I craft unique brand designs that reflect your vision and values.</p>
+        
+        <div class="progress"></div>
+    </div>
+    <div class="stat-box">
+        <div class="progress-bar"></div>
+        <h2>Freelance & Collaboration</h2>
+        <p>I’m always open to exciting freelance projects and collaborations. Whether you need a developer, designer, or content creator, I bring creativity, dedication, and expertise to every project. Let’s build something amazing together!</p>
+        
+        <div class="progress"></div>
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <h2>Contact Me</h2>
+        <p>Have a question or want to work together? Send me a message!</p>
+
+        <div class="contact-wrapper">
+            <!-- Contact Form -->
+            <form action="https://formspree.io/f/xldgqbkp" method="post" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p><strong>Email:</strong> akumjoshuawin@gmail.com</p>
+                <p><strong>Phone:</strong> +233 542 886 115</p>
+                <h3>Follow Me</h3>
+                <div class="social-icons">
+                    <a href="https://web.facebook.com/profile.php?id=61559272724585"><i class="fab fa-facebook"></i></a>
+                    <a href="https://wa.me/qr/SG5GDSYDW4NUI1"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/joshua-akum-3a3131329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- JavaScript for menu toggle -->
+<script src="script.js"></script>
+
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2025 Code Josh. All Rights Reserved.</p>
+        <nav>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</footer>
+
+</body>
+</html>

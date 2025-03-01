@@ -1,0 +1,723 @@
+/* Global Styles */
+* {
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow: auto;
+}
+
+body {
+    background-color: #000;
+    overflow: auto; /* Ensure scrolling is enabled */
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling while loading */
+}
+
+
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.534); /* Background color */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Creative Loader Animation */
+.loader-animation {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(#f0f, #0ff, #f0f);
+    animation: spin 1.0s linear infinite;
+}
+
+/* Brand Name */
+.loader-text {
+    color: #0ff;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 1.0s ease-in-out infinite alternate;
+}
+
+/* Animations */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(90deg, #f0f, #0ff); /* Your brand colors */
+    color: white;
+    font-size: 28px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Hide initially */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    opacity: 0.8;
+}
+
+
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7); /* Slightly transparent */
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Add blur effect when scrolling */
+.header.scrolled {
+    backdrop-filter: blur(10px);
+    background: rgba(106, 161, 168, 0.85); /* Darker when scrolling */
+}
+
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    backdrop-filter: blur(10px); /* Blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    padding: 15px 20px;
+    z-index: 1000; /* Ensures it stays on top */
+}
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Menu Styles */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* Mobile view: hide menu by default */
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+}
+
+
+.menu li {
+    position: relative; /* Required for absolute positioning */
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    position: relative;
+}
+
+/* Gradient Underline Effect */
+.menu li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #f0f, #0ff);
+    transform: scaleX(0);  /* Initially hidden */
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Show on Hover */
+.menu li a:hover::after {
+    transform: scaleX(0.5); /* Expands fully on hover */
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #111;
+        text-align: center;
+    }
+
+    .menu li {
+        padding: 15px 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+}
+
+
+/* Sections */
+section {
+    width: 100vw;
+    overflow: hidden;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.home {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 90px;
+}
+
+.home-image img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    right: 0;
+    top: 0;
+}
+
+.home-content h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.home-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    background: linear-gradient(90deg, #0ff, #f0f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Social Media */
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.3rem;
+    height: 3rem;
+    font-size: 2rem;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid rgb(10, 152, 247);
+    border-radius: 20%;
+    color: rgb(10, 152, 247);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.2s;
+}
+
+.social-media a:hover {
+    background: rgb(62, 130, 209);
+    color: rgb(10, 1, 19);
+    box-shadow: 0 0 1rem rgb(62, 130, 209);
+}
+
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 9rem;
+    height: 3rem;
+    border-radius: 5px;
+    text-decoration: none;
+    background: linear-gradient(90deg, #f0f, #0ff);
+    color: rgb(10, 1, 19);
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #0ff, #f0f);
+}
+
+/* Default Layout: Image Left, Text Right */
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px;
+}
+
+/* Image Styling */
+.about-img {
+    flex: 1;
+}
+
+.about-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Text Content */
+.about-content {
+    flex: 1;
+    text-align: left;
+}
+
+.about h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.about h3 {
+    font-size: 1.5em;
+    color: #5a5a5a;
+}
+
+.about p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+/* Mobile View: Stack Image & Text */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column; /* Stack items */
+        text-align: center;
+        padding: 30px;
+    }
+
+    .about-img img {
+        max-width: 80%;
+    }
+
+    .about-content {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .about h2 {
+        font-size: 1.8em;
+    }
+}
+
+
+.stats .wid {
+    font-size: 40px;
+    text-align: center; /* Centers the text horizontally */
+    width: 100%; /* Ensures it takes full width */
+    margin: 0 auto; /* Centers it within the section */
+}
+
+
+
+/* Stats */
+.stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #111;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+
+
+.stat-box {
+    text-align: center;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    height: 300px;
+    color: white;
+}
+
+.stat-box h2 {
+    font-size: 30px;
+    background: linear-gradient(90deg, #0ff, #f0f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Progress Bar */
+.progress-bar, .progress {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #0ff, #f0f);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-size: 200% 100%;
+    animation: gradientMove 2s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar a {
+        margin: 10px 0;
+    }
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+    .home-image img {
+        right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .about h2 {
+        width: 100%; /* Make it slightly wider on small screens */
+        padding: 30px 0 0 50px; /* Add some space */
+    }
+}
+
+
+
+/* Portfolio Section */
+#portfolio {
+    padding: 60px 20px;
+    background: #0D1117; /* Dark Background */
+    color: white;
+    text-align: center;
+}
+
+#portfolio h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #58A6FF; /* Highlight Color */
+}
+
+#portfolio p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Portfolio Filters */
+.portfolio-filters {
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    background: #21262D;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #58A6FF; /* Active Button Color */
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding-top: 20px;
+}
+
+/* Portfolio Item */
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Portfolio Info */
+.portfolio-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: 0.3s ease-in-out;
+}
+
+.portfolio-item:hover .portfolio-info {
+    transform: translateY(0);
+}
+
+.portfolio-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.portfolio-info a {
+    color: #58A6FF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.portfolio-info a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+
+/* Contact Section */
+#contact {
+    padding: 60px 20px;
+    background: #111; /* Matches Navbar Background */
+    color: white;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+#contact p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Contact Wrapper (Flexbox) */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+/* Contact Form */
+.contact-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    background: #007BFF;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #0056b3;
+}
+
+/* Contact Info */
+.contact-info {
+    max-width: 350px;
+    text-align: left;
+}
+
+.contact-info h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 24px;
+}
+
+.social-icons a {
+    color: white;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #007BFF;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+footer {
+    background: #1a6feea8;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+footer ul li a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #1e90ff;
+}
